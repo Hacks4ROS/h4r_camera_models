@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <package>
-  <name>h4r_camera_models</name>
+  <name>h4r_hardware_models</name>
   <version>0.0.0</version>
-  <description>The h4r_camera_models package, containing camera models and information</description>
+  <description>The h4r_hardware_models package, containing hardware cad models and information or URDF (xacro) files 
+  	for various hardware components for example for cameras, servos.</description>
 
   <maintainer email="cyborgx1@gmail.com">Christian Holl</maintainer>
   <author email="cyborgx1@gmail.com">Christian Holl</author>
