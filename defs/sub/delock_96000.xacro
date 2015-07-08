@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro"
+	   name="delock_96000_camera">
+
+
+<xacro:macro name="hw_models_delock_96000" 
+			 params="camera_name
+			 		 frame_id">
+
+			 		 	
+<link name="${camera_name}/mesh">
+	<visual>
+		<geometry>			
+			<mesh filename="package://h4r_hardware_models/mesh/dae/delock_96000_camera.dae"  />
+		</geometry>
+	</visual>
+	
+	<collision name="${camera_name}/mesh_collision">
+		<origin rpy="0 0 0" xyz="-0.00200 0 -0.00325"/>
+		<geometry>
+			<box size="0.060 0.0085 0.0065" />
+		</geometry>
+	</collision>
+	<inertia>
+		<mass value="0.025" />
+		<inertia ixx="9.325" 
+				 iyy="11.911" 
+				 izz="7.028" 
+		         iyz="0.0" 
+		         ixy="0.0" 
+		         ixz="1.025" />
+	</inertia>
+</link>
+
+<!-- -->
+<xacro:rr_cam
+name             ="${camera_name}"
+always_on        ="true"
+frame_name       ="camera0"
+image_width      ="640"
+image_height     ="480"
+image_format     ="R8G8B8"
+clip_near        ="0.02"
+clip_far         ="300"
+noise_type       ="gaussian"
+noise_mean       ="0.0"
+noise_std_dev    ="0.007"
+fov              ="0.873"
+hack_baseline    ="0.07"
+dist_K1          ="0.0"
+dist_K2          ="0.0"
+dist_K3          ="0.0"
+dist_T1          ="0.0"
+dist_T2          ="0.0"
+update_rate      ="30" 
+parent           ="${camera_name}/mesh"
+has_inertia      ="false"
+>  
+<origin xyz="0
+             0 
+             -0.0065" rpy="0 ${rr_const_pi/2} ${rr_const_pi/2}" />
+<geometry>
+	<sphere radius="0.0015" />
+</geometry>
+<material name="Black">
+	<color rgba="0 0 0 1"/>		
+</material>
+ <inertial/>
+</xacro:rr_cam>	 
+<xacro:rr_gaz_mat_s name="${camera_name}" material="Gazebo/FlatBlack"/>
+</xacro:macro>
+
+</robot>
