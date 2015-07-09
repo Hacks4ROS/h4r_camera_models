@@ -60,9 +60,7 @@ update_rate      ="30"
 parent           ="${camera_name}/mesh"
 has_inertia      ="false"
 >  
-<origin xyz="0
-             0 
-             -0.0065" rpy="0 ${rr_const_pi/2} ${rr_const_pi/2}" />
+<origin xyz="0 0 -0.0065" rpy="0 ${rr_const_pi/2} ${rr_const_pi/2}" />
 <geometry>
 	<sphere radius="0.0015" />
 </geometry>

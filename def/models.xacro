@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 Include this to the file you want to use the macros
-	<xacro:include filename="$(find h4r_hardware_models)/defs/models.xacro"/>
+	<xacro:include filename="$(find h4r_hardware_models)/def/models.xacro"/>
 -->
 	
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
@@ -9,6 +9,6 @@ Include this to the file you want to use the macros
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 	
-       <xacro:include filename="$(find h4r_hardware_models)/defs/sub/delock_96000.xacro"/>
+       <xacro:include filename="$(find h4r_hardware_models)/def/sub/delock_96000.xacro"/>
 
 </robot>
